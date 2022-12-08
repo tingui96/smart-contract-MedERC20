@@ -34,6 +34,7 @@ interface Token {
     function allowance(address _owner, address _spender) external view returns (uint256 remaining);
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
+    event PendingToApprove(address indexed _from, address indexed _to,uint256 _value);
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
     event Reject(address indexed _owner, address indexed _spender, uint256 _value);
 }
@@ -78,7 +79,7 @@ contract MedErc20 is Token {
         pendings[msg.sender][_to] += _value;
         transfer_pending[_to].push(StructTransferPending(msg.sender,_value));
         pendingTotalSupply += _value;
-        emit Approval(msg.sender, _to, _value);(msg.sender, _to, _value); //solhint-disable-line indent, no-unused-vars
+        emit PendingToApprove(msg.sender, _to, _value);//solhint-disable-line indent, no-unused-vars
         return true;
     }
 
@@ -89,7 +90,7 @@ contract MedErc20 is Token {
         pendings[_from][_to] += _value;
         transfer_pending[_to].push(StructTransferPending(_from,_value));
         pendingTotalSupply += _value;
-        emit Approval(_from, _to, _value);(_from, _to, _value); //solhint-disable-line indent, no-unused-vars
+        emit PendingToApprove(_from, _to, _value); //solhint-disable-line indent, no-unused-vars
         return true;
     }
 
