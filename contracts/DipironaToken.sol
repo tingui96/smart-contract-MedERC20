@@ -11,6 +11,6 @@ contract AspirinaToken is MedErc20
 
     constructor() MedErc20(0,"Dipirona","DPN")
     {
-        _mint(msg.sender,INITIAL_SUPPLY); 
+        _mint(msg.sender,INITIAL_SUPPLY);
     }
 }
