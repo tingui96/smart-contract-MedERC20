@@ -45,6 +45,9 @@
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+const fs = require('fs');
+const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 module.exports = {
   /**
@@ -64,11 +67,12 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+    development: {
+      host: "https://data-seed-prebsc-1-s1.binance.org",
+      port: 8545, // replace with quorum node port you wish to connect to
+      network_id: "97",
+      provider: ()=>new HDWalletProvider(mnemonic,"https://data-seed-prebsc-1-s1.binance.org:8545")
+    },
     //
     // An additional network, but with some advanced options…
     // advanced: {
@@ -80,6 +84,14 @@ module.exports = {
     //   websocket: true         // Enable EventEmitter interface for web3 (default: false)
     // },
     //
+    //testnet: {
+    //  provider: () => new HDWalletProvider(mnemonic, 'https://data-seed-prebsc-1-s1.binance.org:8545'),
+    //  network_id: 97,
+    //  confirmations: 10,
+    //  timeoutBlocks: 200,
+    //  skipDryRun: true,
+    //  networkCheckTimeout:100000
+    //},
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
     // goerli: {
@@ -92,8 +104,8 @@ module.exports = {
     //
     // Useful for private networks
     // private: {
-    //   provider: () => new HDWalletProvider(MNEMONIC, `https://network.io`),
-    //   network_id: 2111,   // This network is yours, in the cloud.
+    //   provider: () => new HDWalletProvider(MNEMONIC, "http://127.0.0.1:22001"),
+    //   network_id: 10,   // This network is yours, in the cloud.
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
   },
