@@ -1,5 +1,5 @@
 
-var DipironaToken = artifacts.require("AspirinaToken");
+var DipironaToken = artifacts.require("Loratadina");
 
 module.exports = function(deployer) {
   // deployment steps

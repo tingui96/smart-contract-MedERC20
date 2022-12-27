@@ -236,10 +236,10 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
             // decrementing then incrementing.
             _pendings[to][from] += amount;
         }
-
-        emit PendingToApprove(from, to, amount);
-        _pendingTotal-=amount;
+        _pendingTotal+=amount;
         _afterTokenTransfer(from, to, amount);
+        emit PendingToApprove(from, to, amount);        
+        
     }
 
     /** @dev Creates `amount` tokens and assigns them to `account`, increasing
@@ -371,20 +371,21 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
     }
     function approveTransfer(address from, uint256 amount) public virtual override returns (bool)
     {
-        require(_pendings[from][_msgSender()]>=amount);
-        _pendings[from][_msgSender()] -= amount;
+        require(_pendings[_msgSender()][from]>=amount);
+        _pendings[_msgSender()][from] -= amount;
         _balances[_msgSender()] += amount;
-        emit Transfer(from, _msgSender(), amount);
+        
         _pendingTotal -= amount;
+        emit Transfer(from, _msgSender(), amount);
         return true;
     }
     function rejectTransfer(address from, uint256 amount) public virtual override returns (bool)
     {
         require(_pendings[from][_msgSender()]>=amount);
         _pendings[from][_msgSender()] -= amount;
-        _balances[from] += amount;
-        emit RejectTransfer(from, _msgSender(), amount);
+        _balances[from] += amount;        
         _pendingTotal -= amount;
+        emit RejectTransfer(from, _msgSender(), amount);
         return true;
     }
 }
