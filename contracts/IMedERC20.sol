@@ -9,7 +9,7 @@ interface IMedERC20 {
      *
      * Note that `value` may be zero.
      */
-    event PendingToApprove(address indexed from,address indexed to, uint256 value);
+    event PendingApprove(address indexed from,address indexed to, uint256 value);
     /**
      * @dev Emitted when `to` reject the transfer from 'from'
      *

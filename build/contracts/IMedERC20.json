@@ -23,7 +23,7 @@
           "type": "uint256"
         }
       ],
-      "name": "PendingToApprove",
+      "name": "PendingApprove",
       "type": "event"
     },
     {
@@ -113,7 +113,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"PendingToApprove\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RejectTransfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approveTransfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pendingTotalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"rejectTransfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"PendingToApprove(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"},\"RejectTransfer(address,address,uint256)\":{\"details\":\"Emitted when `to` reject the transfer from 'from' Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"approveTransfer(address,uint256)\":{\"details\":\"Moves `amount` tokens pending from the caller's account to balance account. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"pendingTotalSupply()\":{\"details\":\"Returns the amount of tokens pending.\"},\"rejectTransfer(address,uint256)\":{\"details\":\"Moves `amount` tokens pending from the caller's account to 'from' balance account. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IMedERC20.sol\":\"IMedERC20\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IMedERC20.sol\":{\"keccak256\":\"0x7af21d7316c013794ecf7b67706096f482e7e2615100d93e7e1b4a00fbae6249\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d80be405229236b735ec7bdbb50b99c51dc87bb1e85a47db9ff07e99a5aea79a\",\"dweb:/ipfs/QmSzyoizfPcbpt93GsHEVQ8pFdvht9GFSpg19cBMqhGWc2\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"PendingApprove\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RejectTransfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approveTransfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pendingTotalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"rejectTransfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"PendingApprove(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"},\"RejectTransfer(address,address,uint256)\":{\"details\":\"Emitted when `to` reject the transfer from 'from' Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"approveTransfer(address,uint256)\":{\"details\":\"Moves `amount` tokens pending from the caller's account to balance account. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"pendingTotalSupply()\":{\"details\":\"Returns the amount of tokens pending.\"},\"rejectTransfer(address,uint256)\":{\"details\":\"Moves `amount` tokens pending from the caller's account to 'from' balance account. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IMedERC20.sol\":\"IMedERC20\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IMedERC20.sol\":{\"keccak256\":\"0x21c019826633caea9b7a454f46756e03298474c5a58cd1a795ca237a7c018724\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://de142ab3c4d60ffe1eebcd79c9c6ae22a9a399c527b4bc8dec0446407b604fa5\",\"dweb:/ipfs/QmTNwRzASFm8x2xWY9FXRyQah3Sp65oCcB3muNKbHmmFuw\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -121,7 +121,7 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\ninterface IMedERC20 {\n    /**\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\n     * another (`to`).\n     *\n     * Note that `value` may be zero.\n     */\n    event PendingToApprove(address indexed from,address indexed to, uint256 value);\n    /**\n     * @dev Emitted when `to` reject the transfer from 'from'\n     *\n     * Note that `value` may be zero.\n     */\n    event RejectTransfer(address indexed from,address indexed to, uint256 value);\n    /**\n     * @dev Returns the amount of tokens pending.\n     */\n    function pendingTotalSupply() external view returns (uint256);\n    /**\n     * @dev Moves `amount` tokens pending from the caller's account to balance account.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * Emits a {Transfer} event.\n     */\n    function approveTransfer(address from, uint256 amount) external returns (bool);\n    /**\n     * @dev Moves `amount` tokens pending from the caller's account to 'from' balance account.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * Emits a {Transfer} event.\n     */\n    function rejectTransfer(address from, uint256 amount) external returns (bool);\n\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\ninterface IMedERC20 {\n    /**\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\n     * another (`to`).\n     *\n     * Note that `value` may be zero.\n     */\n    event PendingApprove(address indexed from,address indexed to, uint256 value);\n    /**\n     * @dev Emitted when `to` reject the transfer from 'from'\n     *\n     * Note that `value` may be zero.\n     */\n    event RejectTransfer(address indexed from,address indexed to, uint256 value);\n    /**\n     * @dev Returns the amount of tokens pending.\n     */\n    function pendingTotalSupply() external view returns (uint256);\n    /**\n     * @dev Moves `amount` tokens pending from the caller's account to balance account.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * Emits a {Transfer} event.\n     */\n    function approveTransfer(address from, uint256 amount) external returns (bool);\n    /**\n     * @dev Moves `amount` tokens pending from the caller's account to 'from' balance account.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * Emits a {Transfer} event.\n     */\n    function rejectTransfer(address from, uint256 amount) external returns (bool);\n\n}\n",
   "sourcePath": "/home/yandy/Videos/smart-contract-MedERC20/contracts/IMedERC20.sol",
   "ast": {
     "absolutePath": "project:/contracts/IMedERC20.sol",
@@ -168,10 +168,10 @@
               "src": "84:158:3",
               "text": " @dev Emitted when `value` tokens are moved from one account (`from`) to\n another (`to`).\n Note that `value` may be zero."
             },
-            "eventSelector": "8a5deb7211f2688e97e9ad13160cf74290d123ff8eeed5d867d60d964a4431b2",
+            "eventSelector": "0c28b9c7d6f6f87e01f04d84445b5b116351bf4a7330d5f256b9cc7a336d5eba",
             "id": 135,
-            "name": "PendingToApprove",
-            "nameLocation": "253:16:3",
+            "name": "PendingApprove",
+            "nameLocation": "253:14:3",
             "nodeType": "EventDefinition",
             "parameters": {
               "id": 134,
@@ -183,10 +183,10 @@
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "from",
-                  "nameLocation": "286:4:3",
+                  "nameLocation": "284:4:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 135,
-                  "src": "270:20:3",
+                  "src": "268:20:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -197,7 +197,7 @@
                     "id": 128,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "270:7:3",
+                    "src": "268:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -212,10 +212,10 @@
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "307:2:3",
+                  "nameLocation": "305:2:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 135,
-                  "src": "291:18:3",
+                  "src": "289:18:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -226,7 +226,7 @@
                     "id": 130,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "291:7:3",
+                    "src": "289:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -241,10 +241,10 @@
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "value",
-                  "nameLocation": "319:5:3",
+                  "nameLocation": "317:5:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 135,
-                  "src": "311:13:3",
+                  "src": "309:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -255,7 +255,7 @@
                     "id": 132,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "311:7:3",
+                    "src": "309:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -264,22 +264,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "269:56:3"
+              "src": "267:56:3"
             },
-            "src": "247:79:3"
+            "src": "247:77:3"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 136,
               "nodeType": "StructuredDocumentation",
-              "src": "331:118:3",
+              "src": "329:118:3",
               "text": " @dev Emitted when `to` reject the transfer from 'from'\n Note that `value` may be zero."
             },
             "eventSelector": "917fde5eac4ebee24db2a7073843acf418e33c79c54e1034e2d6f875a6fb548e",
             "id": 144,
             "name": "RejectTransfer",
-            "nameLocation": "460:14:3",
+            "nameLocation": "458:14:3",
             "nodeType": "EventDefinition",
             "parameters": {
               "id": 143,
@@ -291,10 +291,10 @@
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "from",
-                  "nameLocation": "491:4:3",
+                  "nameLocation": "489:4:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 144,
-                  "src": "475:20:3",
+                  "src": "473:20:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -305,7 +305,7 @@
                     "id": 137,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "475:7:3",
+                    "src": "473:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -320,10 +320,10 @@
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "512:2:3",
+                  "nameLocation": "510:2:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 144,
-                  "src": "496:18:3",
+                  "src": "494:18:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -334,7 +334,7 @@
                     "id": 139,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "496:7:3",
+                    "src": "494:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -349,10 +349,10 @@
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "value",
-                  "nameLocation": "524:5:3",
+                  "nameLocation": "522:5:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 144,
-                  "src": "516:13:3",
+                  "src": "514:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -363,7 +363,7 @@
                     "id": 141,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "516:7:3",
+                    "src": "514:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -372,15 +372,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "474:56:3"
+              "src": "472:56:3"
             },
-            "src": "454:77:3"
+            "src": "452:77:3"
           },
           {
             "documentation": {
               "id": 145,
               "nodeType": "StructuredDocumentation",
-              "src": "536:61:3",
+              "src": "534:61:3",
               "text": " @dev Returns the amount of tokens pending."
             },
             "functionSelector": "c695aaef",
@@ -389,13 +389,13 @@
             "kind": "function",
             "modifiers": [],
             "name": "pendingTotalSupply",
-            "nameLocation": "611:18:3",
+            "nameLocation": "609:18:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 146,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "629:2:3"
+              "src": "627:2:3"
             },
             "returnParameters": {
               "id": 149,
@@ -409,7 +409,7 @@
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 150,
-                  "src": "655:7:3",
+                  "src": "653:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -420,7 +420,7 @@
                     "id": 147,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "655:7:3",
+                    "src": "653:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -429,10 +429,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "654:9:3"
+              "src": "652:9:3"
             },
             "scope": 171,
-            "src": "602:62:3",
+            "src": "600:62:3",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -441,7 +441,7 @@
             "documentation": {
               "id": 151,
               "nodeType": "StructuredDocumentation",
-              "src": "669:221:3",
+              "src": "667:221:3",
               "text": " @dev Moves `amount` tokens pending from the caller's account to balance account.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
             },
             "functionSelector": "fa02c4b7",
@@ -450,7 +450,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "approveTransfer",
-            "nameLocation": "904:15:3",
+            "nameLocation": "902:15:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 156,
@@ -461,10 +461,10 @@
                   "id": 153,
                   "mutability": "mutable",
                   "name": "from",
-                  "nameLocation": "928:4:3",
+                  "nameLocation": "926:4:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 160,
-                  "src": "920:12:3",
+                  "src": "918:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -475,7 +475,7 @@
                     "id": 152,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "920:7:3",
+                    "src": "918:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -489,10 +489,10 @@
                   "id": 155,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "942:6:3",
+                  "nameLocation": "940:6:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 160,
-                  "src": "934:14:3",
+                  "src": "932:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -503,7 +503,7 @@
                     "id": 154,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "934:7:3",
+                    "src": "932:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -512,7 +512,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "919:30:3"
+              "src": "917:30:3"
             },
             "returnParameters": {
               "id": 159,
@@ -526,7 +526,7 @@
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 160,
-                  "src": "968:4:3",
+                  "src": "966:4:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -537,7 +537,7 @@
                     "id": 157,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "968:4:3",
+                    "src": "966:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -546,10 +546,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "967:6:3"
+              "src": "965:6:3"
             },
             "scope": 171,
-            "src": "895:79:3",
+            "src": "893:79:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -558,7 +558,7 @@
             "documentation": {
               "id": 161,
               "nodeType": "StructuredDocumentation",
-              "src": "979:228:3",
+              "src": "977:228:3",
               "text": " @dev Moves `amount` tokens pending from the caller's account to 'from' balance account.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
             },
             "functionSelector": "9f63a62c",
@@ -567,7 +567,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "rejectTransfer",
-            "nameLocation": "1221:14:3",
+            "nameLocation": "1219:14:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 166,
@@ -578,10 +578,10 @@
                   "id": 163,
                   "mutability": "mutable",
                   "name": "from",
-                  "nameLocation": "1244:4:3",
+                  "nameLocation": "1242:4:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 170,
-                  "src": "1236:12:3",
+                  "src": "1234:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -592,7 +592,7 @@
                     "id": 162,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1236:7:3",
+                    "src": "1234:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -606,10 +606,10 @@
                   "id": 165,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "1258:6:3",
+                  "nameLocation": "1256:6:3",
                   "nodeType": "VariableDeclaration",
                   "scope": 170,
-                  "src": "1250:14:3",
+                  "src": "1248:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -620,7 +620,7 @@
                     "id": 164,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1250:7:3",
+                    "src": "1248:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -629,7 +629,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1235:30:3"
+              "src": "1233:30:3"
             },
             "returnParameters": {
               "id": 169,
@@ -643,7 +643,7 @@
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 170,
-                  "src": "1284:4:3",
+                  "src": "1282:4:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -654,7 +654,7 @@
                     "id": 167,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1284:4:3",
+                    "src": "1282:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -663,21 +663,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1283:6:3"
+              "src": "1281:6:3"
             },
             "scope": 171,
-            "src": "1212:78:3",
+            "src": "1210:78:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
         "scope": 172,
-        "src": "58:1235:3",
+        "src": "58:1233:3",
         "usedErrors": []
       }
     ],
-    "src": "33:1261:3"
+    "src": "33:1259:3"
   },
   "compiler": {
     "name": "solc",
@@ -685,10 +685,10 @@
   },
   "networks": {},
   "schemaVersion": "3.4.10",
-  "updatedAt": "2022-12-27T17:53:19.557Z",
+  "updatedAt": "2023-01-05T23:26:51.393Z",
   "devdoc": {
     "events": {
-      "PendingToApprove(address,address,uint256)": {
+      "PendingApprove(address,address,uint256)": {
         "details": "Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero."
       },
       "RejectTransfer(address,address,uint256)": {

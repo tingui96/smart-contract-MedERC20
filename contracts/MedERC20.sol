@@ -34,8 +34,15 @@ import "./IMedERC20.sol";
  * allowances. See {IERC20-approve}.
  */
 contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
+
     mapping(address => uint256) private _balances;
+
+    struct TransferPending {
+        address _sender;
+        uint256 _value;
+    }
     mapping(address => mapping(address => uint256)) private _pendings;
+    mapping(address => TransferPending[]) private _transfersPending;
 
     mapping(address => mapping(address => uint256)) private _allowances;
 
@@ -238,8 +245,7 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
         }
         _pendingTotal+=amount;
         _afterTokenTransfer(from, to, amount);
-        emit PendingToApprove(from, to, amount);        
-        
+        emit PendingApprove(from, to, amount);
     }
 
     /** @dev Creates `amount` tokens and assigns them to `account`, increasing
@@ -364,28 +370,79 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual {}
 
+    function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual {
+        addTransferPending(from,to,amount);
+    }
+    /*
+     *  Add transfer to list of transfers pending to approve
+     */
+    function addTransferPending(address from, address to, uint256 amount) private
+    {
+        TransferPending memory current;
+            current._sender = from;
+            current._value = amount;
+            _transfersPending[to].push(current);
+    }
+    function removeTransferPending(address from) private {
+        bool change = false;
+        for(uint256 i = 0; i < _transfersPending[_msgSender()].length; i++)
+        {
+            if(_transfersPending[_msgSender()][i]._sender == from)
+            {
+                change = true;
+            }
+            if(change && i < (_transfersPending[_msgSender()].length-1))
+            {
+                _transfersPending[_msgSender()][i] = _transfersPending[_msgSender()][i+1];
+            }
+        }
+        _transfersPending[_msgSender()].pop();
+    }
+    /*
+     *  Devuelve el total de medicamentos que aun estan pendientes a aprobar
+     */
     function pendingTotalSupply() public view virtual override returns (uint256) {
         return _pendingTotal;
     }
+    /*
+     *  Aprueba una transferencia pendiente a aprobar
+     */
     function approveTransfer(address from, uint256 amount) public virtual override returns (bool)
     {
         require(_pendings[_msgSender()][from]>=amount);
         _pendings[_msgSender()][from] -= amount;
         _balances[_msgSender()] += amount;
-        
         _pendingTotal -= amount;
+        if(_pendings[_msgSender()][from]==0)
+        {
+            removeTransferPending(from);
+        }
         emit Transfer(from, _msgSender(), amount);
         return true;
     }
+    /*
+     *  Rechaza una transferencia pendiente a aprobar
+     */
     function rejectTransfer(address from, uint256 amount) public virtual override returns (bool)
     {
         require(_pendings[from][_msgSender()]>=amount);
         _pendings[from][_msgSender()] -= amount;
-        _balances[from] += amount;        
+        _balances[from] += amount;
         _pendingTotal -= amount;
+        if(_pendings[_msgSender()][from]==0)
+        {
+            removeTransferPending(from);
+        }
         emit RejectTransfer(from, _msgSender(), amount);
         return true;
+    }
+
+    /*
+     *  Devuelve todas las transferencias pendientes a aprobar
+     */
+    function transferPendingToApprove() public view returns (TransferPending[] memory)
+    {
+        return _transfersPending[_msgSender()];
     }
 }

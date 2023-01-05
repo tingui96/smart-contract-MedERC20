@@ -68,7 +68,7 @@ module.exports = {
     // options below to some value.
     //
     development: {
-      host: "https://data-seed-prebsc-1-s1.binance.org",
+      host: "https://data-seed-prebsc-1-s1.binance.org:8545",
       port: 8545, // replace with quorum node port you wish to connect to
       network_id: "97",
       provider: ()=>new HDWalletProvider(mnemonic,"https://data-seed-prebsc-1-s1.binance.org:8545")
