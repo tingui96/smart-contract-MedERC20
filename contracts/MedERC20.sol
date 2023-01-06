@@ -244,6 +244,7 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
             _pendings[to][from] += amount;
         }
         _pendingTotal+=amount;
+        addTransferPending(from,to,amount);
         _afterTokenTransfer(from, to, amount);
         emit PendingApprove(from, to, amount);
     }
@@ -371,9 +372,7 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
 
-    function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual {
-        addTransferPending(from,to,amount);
-    }
+    function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual {}
     /*
      *  Add transfer to list of transfers pending to approve
      */
@@ -384,6 +383,9 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
             current._value = amount;
             _transfersPending[to].push(current);
     }
+    /*
+     *  Remove transfer to list of transfers pending to approve
+     */
     function removeTransferPending(address from) private {
         bool change = false;
         for(uint256 i = 0; i < _transfersPending[_msgSender()].length; i++)
@@ -398,6 +400,19 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
             }
         }
         _transfersPending[_msgSender()].pop();
+    }
+    /*
+     *  Modify transfer to list of transfers pending to approve
+     */
+    function modifyTransferPending(address from, uint256 amount) private
+    {
+        for(uint256 i = 0; i < _transfersPending[_msgSender()].length; i++)
+        {
+            if(_transfersPending[_msgSender()][i]._sender == from)
+            {
+                _transfersPending[_msgSender()][i]._value -= amount;
+            }
+        }
     }
     /*
      *  Devuelve el total de medicamentos que aun estan pendientes a aprobar
@@ -418,6 +433,10 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
         {
             removeTransferPending(from);
         }
+        else
+        {
+            modifyTransferPending(from,amount);
+        }
         emit Transfer(from, _msgSender(), amount);
         return true;
     }
@@ -426,13 +445,17 @@ contract MedERC20 is Context, IERC20, IERC20Metadata, IMedERC20 {
      */
     function rejectTransfer(address from, uint256 amount) public virtual override returns (bool)
     {
-        require(_pendings[from][_msgSender()]>=amount);
-        _pendings[from][_msgSender()] -= amount;
+        require(_pendings[_msgSender()][from]>=amount);
+        _pendings[_msgSender()][from] -= amount;
         _balances[from] += amount;
         _pendingTotal -= amount;
         if(_pendings[_msgSender()][from]==0)
         {
             removeTransferPending(from);
+        }
+        else
+        {
+            modifyTransferPending(from,amount);
         }
         emit RejectTransfer(from, _msgSender(), amount);
         return true;

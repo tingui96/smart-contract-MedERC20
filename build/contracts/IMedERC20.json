@@ -122,7 +122,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\ninterface IMedERC20 {\n    /**\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\n     * another (`to`).\n     *\n     * Note that `value` may be zero.\n     */\n    event PendingApprove(address indexed from,address indexed to, uint256 value);\n    /**\n     * @dev Emitted when `to` reject the transfer from 'from'\n     *\n     * Note that `value` may be zero.\n     */\n    event RejectTransfer(address indexed from,address indexed to, uint256 value);\n    /**\n     * @dev Returns the amount of tokens pending.\n     */\n    function pendingTotalSupply() external view returns (uint256);\n    /**\n     * @dev Moves `amount` tokens pending from the caller's account to balance account.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * Emits a {Transfer} event.\n     */\n    function approveTransfer(address from, uint256 amount) external returns (bool);\n    /**\n     * @dev Moves `amount` tokens pending from the caller's account to 'from' balance account.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * Emits a {Transfer} event.\n     */\n    function rejectTransfer(address from, uint256 amount) external returns (bool);\n\n}\n",
-  "sourcePath": "/home/yandy/Videos/smart-contract-MedERC20/contracts/IMedERC20.sol",
+  "sourcePath": "/home/yandy/Documents/tesis/smart-contract-MedERC20/contracts/IMedERC20.sol",
   "ast": {
     "absolutePath": "project:/contracts/IMedERC20.sol",
     "exportedSymbols": {
@@ -685,7 +685,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.10",
-  "updatedAt": "2023-01-05T23:26:51.393Z",
+  "updatedAt": "2023-01-06T00:17:46.956Z",
   "devdoc": {
     "events": {
       "PendingApprove(address,address,uint256)": {
